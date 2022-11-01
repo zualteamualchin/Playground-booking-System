@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Booking/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUTDOOR</title>
+</head>
+<body>
+    <script>
+        /* Open */
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        /* Close */
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }  
+    </script>
+    <div class="navbar">
+        <a href="{% url 'index' %}" class="remark">SANDPITS</a>
+        <a href="{% url 'logoutUser' %}">Logout</a>
+        <a href="#!" onclick="openNav()">Help</a>
+        <a href="#!" onclick="openNavC()" ><i class="fa fa-fw fa-envelope"></i>Contact</a>
+        <a href="{% url 'CustomerProfile' %}">Account</a>
+        <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i>Home</a>  
+    </div>
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#!">About</a>
+            <a href="#!">Services</a>
+            <a href="{% url 'indoor' %}">INDOOR</a>
+            <a href="{% url 'outdoor' %}">OUTDOOR</a>
+            <a href="{% url 'location' %}">CHILDRENS</a>
+            <a href="{% url 'teams' %}">Our Team</a>
+        </div>
+    </div>
+    <script>
+        /* Open */
+        function openNavC() {
+            document.getElementById("contactNav").style.height = "60%";
+        }
+
+        /* Close */
+        function closeNavC() {
+            document.getElementById("contactNav").style.height = "0%";
+        }  
+    </script>
+    <div id="contactNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavC()">&times;</a>
+        <div class="overlay-content">
+            <a>Phone : 91-6909624895</a>
+            <a>Email : sandpits@gmail.com</a>
+        </div>
+    </div>  
+    <div class="">
+        <div class="out_box">
+            <div style="align-self : flex-end; right: 50px;"><img src="{% static 'Booking/footsal.jpg' %}" alt=""></div>
+            <div style="align-self : flex-start; left: 50px;"><img src="{% static 'Booking/cricket.jpg' %}" alt=""></div>
+            
+            <h1 style="top: 120px; left: 150px;"><a href="{% url 'location' %}">FOOTBALL</a></h1>
+            <h1 style="top: 900px; left: 840px;"><a href="{% url 'location' %}">CRICKET</a></h1>
+        </div>
+
+    </div>
+
+    <div class="bottom-email" style="top: 1800px;">
+        <div>
+            <h2 style="position: absolute; left:35px; font-size: 28px;">Get alert from SANDPITS</h2>
+            <h3 style="position: absolute; left: 90px; top:60px " >New schedules and Places</h3>
+        </div>
+        <div style="position:absolute ;top: 150px;">
+            <form action="" id="email-form">
+                <input class="inputss" type="text" placeholder="Enter your email.." maxlength="256">
+                
+            </form>
+            <form action="" style=" position:absolute ;left:95px ; top:60px;">
+                <button class="button" data-wait="Please wait.."><span>Subscribe</span></button>
+            </form>
+        </div>
+    </div>
+</body>     
+</html> 

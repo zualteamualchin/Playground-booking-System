@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load crispy_forms_tags %}-->
+    <link rel="stylesheet" href="{%static 'Booking/css/styles.css' %}">
+    <link rel="stylesheet" href="{%static 'Booking/css/reg.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANDPITS </title>
+</head>
+<body>
+    <script>
+        /* Open */
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        /* Close */
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }  
+    </script>
+    <script>
+        /* Open */
+        function openNavC() {
+            document.getElementById("contactNav").style.height = "60%";
+        }
+
+        /* Close */
+        function closeNavC() {
+            document.getElementById("contactNav").style.height = "0%";
+        }  
+    </script>    
+    <div class="navbar">
+        <a href="{% url 'index' %}" class="remark">SANDPITS</a>
+        <a href="#!" onclick="openNav()">Help</a>
+        <a href="#!" onclick="openNavC()"><i class="fa fa-fw fa-envelope"></i>Contact</a>
+        <div class="dropdown">
+            <button class="dropbtn">Login
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="{% url 'managerLogin' %}">Manager</a>
+              <a href="{% url 'loginUser' %}">Customer</a>
+            </div>
+          </div>
+        <a href="#!"><i class="fa fa-fw fa-search"></i>Search</a>   
+    </div>
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#!">Services</a>
+            <a href="{% url 'indoor' %}">INDOOR</a>
+            <a href="{% url 'outdoor' %}">OUTDOOR</a>
+            <a href="{% url 'location' %}">CHILDRENS</a>
+            <a href="{% url 'teams' %}">Our Team</a>
+        </div>
+        </div>
+    </div>
+    <div id="contactNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavC()">&times;</a>
+        <div class="overlay-content">
+            <a>Phone : 91-6909624895</a>
+            <a>Email : sandpits@gmail.com</a>
+        </div>
+    </div>
+    <div class="Registration">
+            <span><h1 style="font-size: 35px;">SIGN UP/REGISTER</h1></span>
+            <form method="POST">
+                {% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+            <div class="form-control">
+                {{form|crispy}}
+                <button type="submit">SUBMIT</button>
+            </div>    
+            </form>
+        
+        <div style="align-self: center;"><a href="{% url 'loginUser' %}"><h4 style="color: white; text-decoration: none;">Login</h4></a></div>
+    </div>
+    <div class="bottom-email">
+        <div>
+            <h2 style="position: absolute; left:35px; font-size: 28px;">Get alert from SANDPITS</h2>
+            <h3 style="position: absolute; left: 90px; top:60px " >New schedules and Places</h3>
+        </div>
+        <div style="position:absolute; top: 150px;">
+            <input type="text" class="inputss" placeholder="Enter email...">
+            <form action="" style=" position:absolute ;left:95px ; top:60px;">
+                <button class="button" data-wait="Please wait.."><span>Subscribe</span></button>
+            </form>
+        </div>
+    </div>
+</body>     
+</html> 

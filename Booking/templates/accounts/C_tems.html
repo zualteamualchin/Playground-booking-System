@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Booking/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANDPITS </title>
+</head>
+<body>
+    <script>
+        /* Open */
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        /* Close */
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }  
+    </script>
+    <div class="navbar">
+        <a href="{% url 'index' %}" class="remark">SANDPITS</a>
+        <a href="{% url 'logoutUser' %}">Logout</a>
+        <a href="#!" onclick="openNav()">Help</a>
+        <a href="#!" onclick="openNavC()"><i class="fa fa-fw fa-envelope"></i>Contact</a>
+        <a href="{% url 'CustomerProfile' %}">Account</a>
+        <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i>Home</a>
+    </div>
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#!">About</a>
+            <a href="#!">Services</a>
+            <a href="{% url 'indoor' %}">INDOOR</a>
+            <a href="{% url 'outdoor' %}">OUTDOOR</a>
+            <a href="{% url 'location' %}">CHILDRENS</a>
+            <a href="{% url 'teams' %}">Our Team</a>
+        </div>
+    </div>
+    <script>
+        /* Open */
+        function openNavC() {
+            document.getElementById("contactNav").style.height = "60%";
+        }
+
+        /* Close */
+        function closeNavC() {
+            document.getElementById("contactNav").style.height = "0%";
+        }  
+    </script>
+    <div id="contactNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavC()">&times;</a>
+        <div class="overlay-content">
+            <a>Phone : 91-6909624895</a>
+            <a>Email : sandpits@gmail.com</a>
+        </div>
+    </div>  
+    <div class="team">
+        <div class="team_box"><img src="{%static 'Booking/lalhmangaihzuala.jpg' %}" alt=""><i>Lalhmangaihzuala</i></div>
+        <div class="team_box"><img src="{%static 'Booking/sandra.jpg' %}" alt=""><i>Sandra V.S</i></div>
+        <div class="team_box"><img src="{%static 'Booking/aswni.jpg' %}" alt=""><i>Aswani R.S</i></div>
+        <div class="team_box"><img src="{%static 'Booking/frido.jpeg' %}" alt=""><i>Fridolin F</i></div>
+    </div>
+
+    <div class="choice" style="top: 800px ; position: relative; ">   
+        <div class="box"><a href="{% url 'indoor' %}"><h2 style=" color: white; position: absolute ; margin-left: 100px ; margin-top: 3px" >INDOOR</h2><img class="img" src="{% static 'Booking/indoor.jpg' %}"  alt=""></a></div>
+        <div class="box"><a href="{% url 'outdoor' %}"><h2 style=" color: white; position: absolute ; margin-left: 70px ; margin-top: 3px" >OUTDOOR</h2><img src="{% static 'Booking/outdoor.jpg' %}" style='height: 100%; width: 100%; object-fit: contain;display: block;border-radius: 20px;' alt=""></a></div>
+        <div class="box"><a href="{% url 'location' %}"><h2 style=" color: white; position: absolute ; margin-left: 70px ; margin-top: 3px" >CHILDREN</h2><img src="{% static 'Booking/children.jpg' %}" style='height: 100%; width: 100%; object-fit: contain; display: block;border-radius: 20px;' alt=""></a></div>
+    </div>
+    <div class="bottom-email" style="display: relative; top: 1400px ; ">
+        <div>
+            <h2 style="position: absolute; left:35px; font-size: 28px;">Get alert from SANDPITS</h2>
+            <h3 style="position: absolute; left: 90px; top:60px " >New schedules and Places</h3>
+        </div>
+        <div style="position:absolute ;top: 150px;">
+            <input type="text" class="inputss" placeholder="Enter email...">
+            <form action="" style=" position:absolute ; left:95px ; top:60px;">
+                <button class="button" data-wait="Please wait.."><span>Subscribe</span></button>
+            </form>
+        </div>
+    </div>
+</body>     
+</html> 

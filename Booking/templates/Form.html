@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <script src="{% static 'Booking/js/script2.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Booking/css/schedule.css' %}">
+    <link rel="stylesheet" href="{%static 'Booking/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANDPITS </title>
+</head>
+<body>
+    <script>
+        /* Open */
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        /* Close */
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }  
+    </script>
+    <script>
+        /* Open */
+        function openNavC() {
+            document.getElementById("contactNav").style.height = "60%";
+        }
+
+        /* Close */
+        function closeNavC() {
+            document.getElementById("contactNav").style.height = "0%";
+        }  
+    </script>    
+    <div class="navbar">
+        <a href="{% url 'index' %}" class="remark">SANDPITS</a>
+        <a href="#!" onclick="openNav()">Help</a>
+        <a href="#!" onclick="openNavC()"><i class="fa fa-fw fa-envelope"></i>Contact</a>
+        <div class="dropdown">
+            <button class="dropbtn">Login
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="{% url 'managerLogin' %}">Manager</a>
+              <a href="{% url 'loginUser' %}">Customer</a>
+            </div>
+          </div>
+        <a href="#"><i class="fa fa-fw fa-search"></i>Search</a>   
+    </div>
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+
+        <!-- div to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#!">Services</a>
+            <a href="{% url 'indoor' %}">INDOOR</a>
+            <a href="{% url 'outdoor' %}">OUTDOOR</a>
+            <a href="{% url 'location' %}">CHILDRENS</a>
+            <a href="{% url 'teams' %}">Our Team</a>
+        </div>
+        </div>
+    </div>
+    <div id="contactNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavC()">&times;</a>
+        <div class="overlay-content">
+            <a>Phone : 91-6909624895</a>
+            <a>Email : sandpits@gmail.com</a>
+        </div>
+    </div>
+    <div class="schedulesBox">
+        <h1>SCHEDULE</h1>
+        
+            <br>
+            <h2>Please select the date first</h2>
+            <form method="POST" action="{% url 'booking' %}">
+                {% csrf_token %}
+            <div class="sdate">
+                <input type="date" name="date">
+                <button type="submit">Search</button>
+            </div> 
+            </form>
+            <br>
+            <form method="POST" action="{% url 'booking' %}">
+                {% csrf_token %}
+            <h2>{{list.dates}}</h2>
+            <input type="text" value="{{list.id}}" hidden name="test">
+            <div class="schedules">
+                <label {{list.seat1}} class="seat"><input type="checkbox" value=True name="AM5">5:00 AM</label>
+                <label {{list.seat2}} class="seat"><input type="checkbox" value=True name="AM6">6:00 AM</label>
+                <label {{list.seat3}} class="seat"><input type="checkbox" value=True name="AM7">7:00 AM</label>
+                <label {{list.seat4}} class="seat"><input type="checkbox" value=True name="AM8">8:00 AM</label>
+                <label {{list.seat5}} class="seat"><input type="checkbox" value=True name="AM9">9:00 AM</label>
+                <label {{list.seat6}} class="seat"><input type="checkbox" value=True name="AM10">10:00 AM</label>
+                <label {{list.seat7}} class="seat"><input type="checkbox" value=True name="AM11">11:00 AM</label>
+                <label {{list.seat8}} class="seat"><input type="checkbox" value=True name="AM12">12:00 PM</label>
+                <label {{list.seat9}} class="seat"><input type="checkbox" value=True name="PM1">1:00 PM</label>
+            </div>
+            <div class="schedules">
+                <label {{list.seat10}} class="seat"><input type="checkbox" value=True name="PM2">2:00 PM</label>
+                <label {{list.seat11}} class="seat"><input type="checkbox" value=True name="PM3">3:00 PM</label>
+                <label {{list.seat12}} class="seat"><input type="checkbox" value=True name="PM4">4:00 PM</label>
+                <label {{list.seat13}} class="seat"><input type="checkbox" value=True name="PM5">5:00 PM</label>
+                <label {{list.seat14}} class="seat"><input type="checkbox" value=True name="PM6">6:00 PM</label>
+                <label {{list.seat15}} class="seat"><input type="checkbox" value=True name="PM7">7:00 PM</label>
+                <label {{list.seat16}} class="seat"><input type="checkbox" value=True name="PM8">8:00 PM</label>
+                <label {{list.seat17}} class="seat"><input type="checkbox" value=True name="PM9">9:00 PM</label>
+                <label {{list.seat18}} class="seat"><input type="checkbox" value=True name="PM10">10:00 PM</label>
+            </div>
+            {{forms.name}}
+            <br>
+            <button style="border-radius: 10px ;background-color:rgb(81, 223, 152) ;width: 15%; height:40px;" type="submit">Proceed</button>
+            </form>
+
+    </div>
+    <script src="{% static 'Booking/js/script2.js' %}"></script>
+    <div class="bottom-email">
+        <div>
+            <h2 style="position: absolute; left:35px; font-size: 28px;">Get alert from SANDPITS</h2>
+            <h3 style="position: absolute; left: 90px; top:60px " >New schedules and Places</h3>
+        </div>
+        <div style="position:absolute ;top: 150px;">
+            <input type="text" class="inputss" placeholder="Enter email...">
+            <form action="" style=" position:absolute ;left:95px ; top:60px;">
+                <button class="button" data-wait="Please wait..">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</body>     
+</html> 
